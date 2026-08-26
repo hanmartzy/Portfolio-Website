@@ -1,0 +1,68 @@
+MY PORTFOLIO WEBSITE — SECTION GUIDE
+(Hana Martinez · plain-language reference)
+Project folder: Documents/01 CODES/Portfolio Website
+Live preview:  http://localhost:5173  (phone: http://192.168.100.209:5173)
+
+
+HOW TO USE THIS GUIDE
+---------------------
+When you want something changed, find it below and use its NAME.
+Example: "make the Event Cards bigger" or "move the Banner photo up".
+
+
+STUFF ON EVERY PAGE
+-------------------
+* HEADER ............ top bar: circled home button + FILM / LIVE / POST tabs
+* FOOTER ............ bottom bar: "2026 © HANA MARTINEZ" + BACK TO TOP button
+* PROJECT MODAL ..... popup window (photo/video + description) from some buttons
+* GALLERY LIGHTBOX .. full-screen photo viewer you can swipe through
+                      (opens when you click VIEW GALLERY on the Live page)
+
+
+HOME PAGE (/)
+-------------
+* BANNER ............ the big photo behind "CREATED TO CREATE." at the very top
+
+* SELECTED WORKS .... the whole middle block (heading + all 6 cards together):
+    - WORK CARDS ...... the 3 video thumbnails:
+                        GAME NA?, COUNTER CULTURE, PLDT FIBER FEST
+                        (clicking one opens that exact project on its page)
+    - DISCIPLINE CARDS  the 3 text boxes under them:
+                        01 FILM, 02 LIVE, 03 POST
+                        (clicking one opens that page)
+    - PAIR ROW ........ one work card + its discipline card locked together
+                        (work on top, discipline below)
+    - PHONE CAROUSEL .. phone only: swipe left/right through the 3 pairs,
+                        with arrows and dots at the bottom
+
+* SHOWREEL .......... the vertical grey "2025 SHOWREEL" text beside the
+                      embedded YouTube player (text auto-fits the video height)
+
+* CONTACT ........... bottom of home page: "AVAILABLE FOR PROJECTS",
+                      LET'S CREATE., and the email link
+
+
+FILM PAGE (/film)
+-----------------
+* FILM TITLE BLOCK .. "FILM PRODUCTION" heading + description + ARCHIVES tag
+* ARCHIVE ROWS ...... the 3 project entries (alternating layout):
+                      GAME NA?, RAGING RACHEL, THE WONDERFUL BLOOD
+* FILM SHOWREEL TEASER  image strip with play icon at the bottom
+
+
+LIVE PAGE (/live)
+-----------------
+* LIVE HERO ......... wide control-room photo with "LIVE PRODUCTION" title
+* EVENT CARDS ....... grid of the 3 events:
+                      COUNTER CULTURE, HIGH SCHOOL CONFERENCE,
+                      WORSHIP CONFERENCE
+                      (each has a VIEW GALLERY pill + date under the title)
+
+
+POST PAGE (/post)
+-----------------
+* POST INTRO ........ eyebrow tag + "POST PRODUCTION" heading + paragraph
+* POST HERO ......... parallax image under the intro (currently empty)
+* POST ROWS ......... numbered project entries:
+                      PLDT FIBER FEST, SOMEWHERE IN THE CITY,
+                      FAVOR COLLEGE GETAWAY
