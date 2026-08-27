@@ -18,7 +18,6 @@ type Project = {
   anchor?: string;
   gallery?: string[];
   link?: string;
-  video?: string;
   clip?: string;
   mode?: 'outline' | 'solid';
   reverse?: boolean;
@@ -65,7 +64,7 @@ const clips = {
 };
 
 const postProjects: Project[] = [
-  { title: 'PLDT FIBER FEST', meta: '2025 / EVENT RECAP', description: "Level up and embrace the thrill of sports this summer with Toby's Sports.", image: images.postpldt, clip: clips.pldt, action: 'VIEW DETAILS', year: '2025', anchor: 'pldt-fiber-fest' },
+  { title: 'PLDT FIBER FEST', meta: '2025 / EVENT RECAP', description: 'Recap edit of PLDT Fiber Fest 2025 — fast-cut event highlights with clean pacing and sound design.', image: images.postpldt, clip: clips.pldt, action: 'VIEW DETAILS', year: '2025', anchor: 'pldt-fiber-fest' },
   { title: 'SOMEWHERE IN THE CITY', meta: '2025 / PERSONAL', description: 'Are you lost in Manila too?', image: images.postmanila, clip: clips.manila, action: 'WATCH ON INSTAGRAM', link: 'https://www.instagram.com/reel/DSQAupfk2OJ/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==', mode: 'solid', reverse: true, year: '2025' },
   { title: 'FAVOR COLLEGE GETAWAY', meta: '2026 / RECAP', description: "Takeaways from Favor College Batch 6's getaway.", image: images.postfc, clip: clips.favor, action: 'WATCH ON INSTAGRAM', link: 'https://www.instagram.com/p/DXDv_SrElZN/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==', mode: 'solid', year: '2026' },
 ];
@@ -436,7 +435,7 @@ function PostPage({ onOpen }: { onOpen: (project: Project) => void }) {
       <section className="post-intro"><div><h1>POST<br />PRODUCTION</h1><p>Meticulous color grading, sound design, and narrative shaping for independent cinema and commercial auteurs.</p></div></section>
       <section className="post-skills"><span className="eyebrow" data-reveal>SOFTWARE USED</span><div className="skills-row">{postSkills.map((skill, index) => <div className="skill" key={skill.name} data-reveal style={stagger(index * 60)}><img src={skill.logo} alt="" /><span>{skill.name}</span></div>)}</div></section>
     </div>
-    <section className="post-works"><div className="section-heading" data-reveal><span>SELECTED WORKS</span></div><div className="post-list">{postProjects.map((project, index) => <article className={`post-row${project.reverse ? ' reverse' : ''}`} key={project.title} data-reveal id={project.anchor ? `project-${project.anchor}` : undefined}><div className="post-copy"><span className="index">0{index + 1} / {project.meta.split(' / ')[1]}</span><h2>{project.title}</h2><ActionButton project={project} onOpen={onOpen} /></div><PostImage project={project} /></article>)}</div></section>
+    <section className="post-works"><div className="section-heading" data-reveal><span>SELECTED WORKS</span></div><div className="post-list">{postProjects.map((project, index) => <article className={`post-row${project.reverse ? ' reverse' : ''}`} key={project.title} data-reveal id={project.anchor ? `project-${project.anchor}` : undefined}><div className="post-copy"><span className="index">0{index + 1} / {project.meta.split(' / ')[1]}</span><h2>{project.title}</h2><div className="post-actions"><ActionButton project={{ ...project, link: undefined, mode: undefined, action: 'VIEW DETAILS' }} onOpen={onOpen} />{project.link ? <ActionButton project={project} onOpen={onOpen} /> : null}</div></div><PostImage project={project} /></article>)}</div></section>
   </main>;
 }
 
@@ -538,26 +537,16 @@ function App() {
         <X size={18} />
       </button>
 
-      {selected.video ? (
-      <div className="video-container">
-  <iframe
-    src="https://www.youtube.com/embed/h2jnGE-kCX0"
-    title="Hana's Showreel"
-    width="100%"
-    height="100%"
-    frameBorder="0"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-    allowFullScreen
-  />
-</div>
-      ) : (
-        selected.image ? (
-          <img
-            src={selected.image}
-            alt={selected.title}
-          />
-        ) : null
-      )}
+      {selected.clip ? (
+        <div className="video-container">
+          <video src={selected.clip} autoPlay loop muted playsInline controls />
+        </div>
+      ) : selected.image ? (
+        <img
+          src={selected.image}
+          alt={selected.title}
+        />
+      ) : null}
 
       <div>
         <span className="eyebrow">{selected.meta}</span>
