@@ -137,6 +137,11 @@ button.contact-icon { background: none; border: 0; padding: 0 0 5px; cursor: poi
 .live-title > *:nth-child(3), .post-intro > div > *:nth-child(3), .film-title > *:nth-child(3) { animation-delay: .34s; }
 .post-skills { padding: 0 24px 28px; }
 .post-skills .eyebrow { margin-bottom: 18px; }
+@media (min-width: 900px) {
+  .post-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 40px; }
+  .post-head .post-intro { flex: 1 1 auto; }
+  .post-head .post-skills { flex: 0 1 420px; padding: 0 48px 10px 0; }
+}
 .skills-row { display: flex; flex-wrap: wrap; gap: 12px; }
 .skill { display: flex; align-items: center; gap: 12px; padding: 13px 22px 13px 14px; border-radius: 14px; background: #1f1f1f; }
 .skill img { width: 30px; height: 30px; object-fit: contain; }
