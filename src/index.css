@@ -171,8 +171,6 @@ button.contact-icon { background: none; border: 0; padding: 0 0 5px; cursor: poi
 .action-button.solid.instagram:hover { border-color: #d34495; background: linear-gradient(135deg, #d34495, #f87214); }
 .action-button.solid.youtube, .action-button.solid.instagram { color: #fff; }
 
-.post-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 12px; }
-
 .live-page { padding-bottom: 24px; }
 .live-hero { position: relative; min-height: 720px; display: flex; align-items: end; padding: 0 24px 56px; overflow: hidden; }
 .live-hero-image { position: absolute; inset: 0; }
