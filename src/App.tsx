@@ -3,6 +3,10 @@ import { ArrowLeft, ArrowRight, ArrowUp, Home, Instagram, Mail, Play, X } from '
 
 type RouteName = 'home' | 'post' | 'live' | 'film';
 
+const BASE_URL = import.meta.env.BASE_URL;
+const asset = (path: string) => `${BASE_URL}${path.replace(/^\//, '')}`;
+const routeHref = (page: string) => `${BASE_URL}${page.replace(/^\//, '')}`;
+
 type Project = {
   title: string;
   meta: string;
@@ -21,49 +25,55 @@ type Project = {
 };
 
 const images = {
-  homeHero: '/images/general/homehero.jpg',
-  homePost: '/images/projects/pldt.jpg',
-  homeLive: '/images/projects/ccprod.jpeg',
-  homeFilm: '/images/general/gamena.jpg',
+  homeHero: asset('/images/general/homehero.jpg'),
+  homePost: asset('/images/projects/pldt.jpg'),
+  homeLive: asset('/images/projects/ccprod.jpeg'),
+  homeFilm: asset('/images/general/gamena.jpg'),
   homeFrames: '',
-  liveHero: '/images/general/livehero.png',
-  filmHero: '/images/general/filmhero.jpg',
-  filmgamena: '/images/projects/tobys.png',
-  filmragingrachel: '/images/projects/rr.png',
-  filmtwb: '/images/projects/twb.png',
-  livecc: '/images/projects/ccprod.jpeg',
-  livehscon: '/images/projects/hscon.jpg',
-  livewc: '/images/projects/wc.jpg',
-  postpldt: '/images/projects/pldt.gif',
-  postmanila:'/images/projects/city.gif',
-  postfc: '/images/projects/favor.gif',
-  GScc01: '/images/galleryscroll/cc01.jpg',
-  GScc02: '/images/galleryscroll/cc02.jpg',
-  GScc03: '/images/galleryscroll/cc03.jpg',
-  GScc04: '/images/galleryscroll/cc04.jpg',
-  GScc05: '/images/galleryscroll/cc05.jpg',
-  GScc06: '/images/galleryscroll/cc06.jpg',
-  GShs01: '/images/galleryscroll/hscon01.jpg',
-  GShs02: '/images/galleryscroll/hscon02.png',
-  GShs03: '/images/galleryscroll/hscon03.jpg',
-  GShs04: '/images/galleryscroll/hscon04.png',
-  GSwc01: '/images/galleryscroll/wc01.jpg',
-  GSwc02: '/images/galleryscroll/wc02.jpg',
-  GSwc03: '/images/galleryscroll/wc03.jpg',
-  GSwc04: '/images/galleryscroll/wc04.jpg',
-  GSwc05: '/images/galleryscroll/wc05.jpg',
+  liveHero: asset('/images/general/livehero.png'),
+  filmHero: asset('/images/general/filmhero.jpg'),
+  filmgamena: asset('/images/projects/tobys.png'),
+  filmragingrachel: asset('/images/projects/rr.png'),
+  filmtwb: asset('/images/projects/twb.png'),
+  livecc: asset('/images/projects/ccprod.jpeg'),
+  livehscon: asset('/images/projects/hscon.jpg'),
+  livewc: asset('/images/projects/wc.jpg'),
+  postpldt: asset('/images/projects/pldt.gif'),
+  postmanila: asset('/images/projects/city.gif'),
+  postfc: asset('/images/projects/favor.gif'),
+  GScc01: asset('/images/galleryscroll/cc01.jpg'),
+  GScc02: asset('/images/galleryscroll/cc02.jpg'),
+  GScc03: asset('/images/galleryscroll/cc03.jpg'),
+  GScc04: asset('/images/galleryscroll/cc04.jpg'),
+  GScc05: asset('/images/galleryscroll/cc05.jpg'),
+  GScc06: asset('/images/galleryscroll/cc06.jpg'),
+  GShs01: asset('/images/galleryscroll/hscon01.jpg'),
+  GShs02: asset('/images/galleryscroll/hscon02.png'),
+  GShs03: asset('/images/galleryscroll/hscon03.jpg'),
+  GShs04: asset('/images/galleryscroll/hscon04.png'),
+  GSwc01: asset('/images/galleryscroll/wc01.jpg'),
+  GSwc02: asset('/images/galleryscroll/wc02.jpg'),
+  GSwc03: asset('/images/galleryscroll/wc03.jpg'),
+  GSwc04: asset('/images/galleryscroll/wc04.jpg'),
+  GSwc05: asset('/images/galleryscroll/wc05.jpg'),
+};
+
+const clips = {
+  pldt: asset('/videos/pldt.mp4'),
+  manila: asset('/videos/city.mp4'),
+  favor: asset('/videos/favor.mp4'),
 };
 
 const postProjects: Project[] = [
-  { title: 'PLDT FIBER FEST', meta: '2025 / EVENT RECAP', description: "Level up and embrace the thrill of sports this summer with Toby's Sports.", image: images.postpldt, action: 'VIEW DETAILS', year: '2025', anchor: 'pldt-fiber-fest' },
-  { title: 'SOMEWHERE IN THE CITY', meta: '2025 / PERSONAL', description: 'Are you lost in Manila too?', image: images.postmanila, action: 'WATCH ON INSTAGRAM', link: 'https://www.instagram.com/reel/DSQAupfk2OJ/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==', mode: 'solid', reverse: true, year: '2025' },
-  { title: 'FAVOR COLLEGE GETAWAY', meta: '2026 / RECAP', description: "Takeaways from Favor College Batch 6's getaway.", image: images.postfc, action: 'WATCH ON INSTAGRAM', link: 'https://www.instagram.com/p/DXDv_SrElZN/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==', mode: 'solid', year: '2026' },
+  { title: 'PLDT FIBER FEST', meta: '2025 / EVENT RECAP', description: "Level up and embrace the thrill of sports this summer with Toby's Sports.", image: images.postpldt, clip: clips.pldt, action: 'VIEW DETAILS', year: '2025', anchor: 'pldt-fiber-fest' },
+  { title: 'SOMEWHERE IN THE CITY', meta: '2025 / PERSONAL', description: 'Are you lost in Manila too?', image: images.postmanila, clip: clips.manila, action: 'WATCH ON INSTAGRAM', link: 'https://www.instagram.com/reel/DSQAupfk2OJ/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==', mode: 'solid', reverse: true, year: '2025' },
+  { title: 'FAVOR COLLEGE GETAWAY', meta: '2026 / RECAP', description: "Takeaways from Favor College Batch 6's getaway.", image: images.postfc, clip: clips.favor, action: 'WATCH ON INSTAGRAM', link: 'https://www.instagram.com/p/DXDv_SrElZN/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==', mode: 'solid', year: '2026' },
 ];
 
 const postSkills = [
-  { name: 'DaVinci Resolve', logo: '/images/logos/davinci-resolve.svg' },
-  { name: 'Adobe Premiere Pro', logo: '/images/logos/premiere-pro.svg' },
-  { name: 'Adobe Photoshop', logo: '/images/logos/photoshop.svg' },
+  { name: 'DaVinci Resolve', logo: asset('/images/logos/davinci-resolve.svg') },
+  { name: 'Adobe Premiere Pro', logo: asset('/images/logos/premiere-pro.svg') },
+  { name: 'Adobe Photoshop', logo: asset('/images/logos/photoshop.svg') },
 ];
 
 function PostImage({ project }: { project: Project }) {
@@ -78,6 +88,7 @@ function PostImage({ project }: { project: Project }) {
   }, [project.clip, hoverable]);
   if (!project.image) return null;
   const showClip = Boolean(project.clip) && playClip;
+  const clipIsVideo = Boolean(project.clip && /\.(mp4|webm|mov)$/i.test(project.clip));
   return (
     <div
       className="post-image"
@@ -86,7 +97,20 @@ function PostImage({ project }: { project: Project }) {
       onMouseLeave={hoverable && project.clip ? () => setPlayClip(false) : undefined}
     >
       <img src={project.image} alt={project.title} />
-      {project.clip ? <img className="post-gif" src={showClip ? project.clip : undefined} alt="" aria-hidden="true" style={{ opacity: showClip ? 1 : 0 }} /> : null}
+      {project.clip && clipIsVideo ? (
+        <video
+          className="post-gif"
+          src={showClip ? project.clip : undefined}
+          muted
+          loop
+          autoPlay
+          playsInline
+          aria-hidden="true"
+          style={{ opacity: showClip ? 1 : 0 }}
+        />
+      ) : project.clip ? (
+        <img className="post-gif" src={showClip ? project.clip : undefined} alt="" aria-hidden="true" style={{ opacity: showClip ? 1 : 0 }} />
+      ) : null}
     </div>
   );
 }
@@ -104,8 +128,10 @@ const filmProjects: Project[] = [
 ];
 
 function getRoute(): RouteName {
-  const path = window.location.pathname.replace('/', '') as RouteName;
-  return path === 'post' || path === 'live' || path === 'film' ? path : 'home';
+  const base = BASE_URL.endsWith('/') ? BASE_URL : `${BASE_URL}/`;
+  const segments = window.location.pathname.slice(base.length).split('/').filter(Boolean);
+  const last = segments[segments.length - 1] ?? '';
+  return last === 'post' || last === 'live' || last === 'film' ? (last as RouteName) : 'home';
 }
 
 const stagger = (ms: number) => ({ '--reveal-delay': `${ms}ms` }) as CSSProperties;
@@ -176,8 +202,8 @@ function Header({ route }: { route: RouteName }) {
   }, []);
   return <header className={`site-header${scrolled ? ' scrolled' : ''}`}>
     <nav>
-      <a className={`home-link${route === 'home' ? ' active' : ''}`} href="/" aria-label="Go to home"><Home size={15} strokeWidth={1.5} /></a>
-      {(['film', 'live', 'post'] as RouteName[]).map((item) => <a key={item} className={`tab${route === item ? ' active' : ''}`} href={`/${item}`}>{item.toUpperCase()}</a>)}
+      <a className={`home-link${route === 'home' ? ' active' : ''}`} href={BASE_URL} aria-label="Go to home"><Home size={15} strokeWidth={1.5} /></a>
+      {(['film', 'live', 'post'] as RouteName[]).map((item) => <a key={item} className={`tab${route === item ? ' active' : ''}`} href={routeHref(item)}>{item.toUpperCase()}</a>)}
     </nav>
   </header>;
 }
@@ -277,8 +303,8 @@ function HomePage() {
   }, []);
   const projects: Array<{ title: string; meta: string; image: string; route: 'film' | 'live' | 'post'; anchor: string; href: string; external?: boolean; cta: string }> = [
      { title: 'GAME NA?', meta: 'FILM / 2024', image: images.homeFilm, route: 'film', anchor: 'game-na', href: filmProjects[0].link ?? '', external: true, cta: 'WATCH ON YOUTUBE' },
-    { title: 'COUNTER CULTURE 2025', meta: 'LIVE / 2025', image: images.homeLive, route: 'live', anchor: 'counter-culture', href: '/live#gallery-counter-culture', cta: 'VIEW GALLERY' },
-    { title: 'PLDT FIBER FEST', meta: 'POST / 2025', image: images.homePost, route: 'post', anchor: 'pldt-fiber-fest', href: '/post#details-pldt-fiber-fest', cta: 'VIEW DETAILS' },
+    { title: 'COUNTER CULTURE 2025', meta: 'LIVE / 2025', image: images.homeLive, route: 'live', anchor: 'counter-culture', href: routeHref('live#gallery-counter-culture'), cta: 'VIEW GALLERY' },
+    { title: 'PLDT FIBER FEST', meta: 'POST / 2025', image: images.homePost, route: 'post', anchor: 'pldt-fiber-fest', href: routeHref('post#details-pldt-fiber-fest'), cta: 'VIEW DETAILS' },
   ];
   const disciplines: Record<'film' | 'live' | 'post', { num: string; title: string; text: string }> = {
     film: { num: '01', title: 'FILM PRODUCTION', text: 'Bringing ideas to life through visuals, with a focus on cinematography and technical direction.' },
@@ -372,7 +398,7 @@ function HomePage() {
                 </a>
                 <h3>{project.title}</h3>
               </article>
-              <a className="discipline-card" href={`/${project.route}`} aria-label={`${discipline.title} page`}>
+              <a className="discipline-card" href={routeHref(project.route)} aria-label={`${discipline.title} page`}>
                 <div className="discipline-heading"><DisciplineLabel num={discipline.num} /><h3>{discipline.title}</h3></div>
                 <p>{discipline.text}</p>
               </a>
