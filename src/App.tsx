@@ -64,9 +64,9 @@ const clips = {
 };
 
 const postProjects: Project[] = [
-  { title: 'PLDT FIBER FEST', meta: '2025 / EVENT RECAP', description: 'Recap edit of PLDT Fiber Fest 2025 — fast-cut event highlights with clean pacing and sound design.', image: images.postpldt, clip: clips.pldt, action: 'VIEW DETAILS', year: '2025', anchor: 'pldt-fiber-fest' },
-  { title: 'SOMEWHERE IN THE CITY', meta: '2025 / PERSONAL', description: 'Are you lost in Manila too?', image: images.postmanila, clip: clips.manila, action: 'WATCH ON INSTAGRAM', link: 'https://www.instagram.com/reel/DSQAupfk2OJ/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==', mode: 'solid', reverse: true, year: '2025' },
-  { title: 'FAVOR COLLEGE GETAWAY', meta: '2026 / RECAP', description: "Takeaways from Favor College Batch 6's getaway.", image: images.postfc, clip: clips.favor, action: 'WATCH ON INSTAGRAM', link: 'https://www.instagram.com/p/DXDv_SrElZN/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==', mode: 'solid', year: '2026' },
+  { title: 'PLDT FIBER FEST', meta: '2025 / EVENT RECAP', description: '', image: images.postpldt, clip: clips.pldt, action: 'VIEW DETAILS', year: '2025', anchor: 'pldt-fiber-fest' },
+  { title: 'SOMEWHERE IN THE CITY', meta: '2025 / PERSONAL', description: '', image: images.postmanila, clip: clips.manila, action: 'WATCH ON INSTAGRAM', link: 'https://www.instagram.com/reel/DSQAupfk2OJ/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==', mode: 'solid', reverse: true, year: '2025' },
+  { title: 'FAVOR COLLEGE GETAWAY', meta: '2026 / RECAP', description: '', image: images.postfc, clip: clips.favor, action: 'WATCH ON INSTAGRAM', link: 'https://www.instagram.com/p/DXDv_SrElZN/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==', mode: 'solid', year: '2026' },
 ];
 
 const postSkills = [
@@ -121,9 +121,9 @@ const liveProjects: Project[] = [
 ];
 
 const filmProjects: Project[] = [
-  { title: 'GAME NA?', meta: 'TECHNICAL DIRECTOR / COMMERCIAL', description: "Level up and embrace the thrill of sports this summer with Toby's Sports.", image: images.filmgamena, action: 'WATCH ON YOUTUBE', link: 'https://youtu.be/XbzC0ZSwLT4?si=A0xbPNxBjtIq7K-A', mode: 'solid', anchor: 'game-na' },
-  { title: 'RAGING RACHEL', meta: 'CAMERA ASSIST / SHORT FILM', description: 'A high school mistfit with big dreams of becoming a dancer decides to reach for greatness by joining the school dance varsity auditions-alongside her best friend, Bea, who happens to be a better dancer than her.', image: images.filmragingrachel, action: 'TRAILER ON INSTAGRAM', link: 'https://www.instagram.com/reel/DKpEtz0p5nC/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==', mode: 'solid' },
-  { title: "THE WONDERFUL BLOOD // AN EASTER SUNDAY SPECIAL", meta: 'GAFFER / FAVOR FILMS', description: 'An Easter testimony from members of Favor Church.', image: images.filmtwb, action: 'WATCH ON YOUTUBE', link: 'https://youtu.be/sO1sspRK49U?si=FP11-iL4La-JrrPd', mode: 'solid' },
+  { title: 'GAME NA?', meta: 'TECHNICAL DIRECTOR / COMMERCIAL', description: '', image: images.filmgamena, action: 'WATCH ON YOUTUBE', link: 'https://youtu.be/XbzC0ZSwLT4?si=A0xbPNxBjtIq7K-A', mode: 'solid', anchor: 'game-na' },
+  { title: 'RAGING RACHEL', meta: 'CAMERA ASSIST / SHORT FILM', description: '', image: images.filmragingrachel, action: 'TRAILER ON INSTAGRAM', link: 'https://www.instagram.com/reel/DKpEtz0p5nC/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==', mode: 'solid' },
+  { title: "THE WONDERFUL BLOOD // AN EASTER SUNDAY SPECIAL", meta: 'GAFFER / FAVOR FILMS', description: '', image: images.filmtwb, action: 'WATCH ON YOUTUBE', link: 'https://youtu.be/sO1sspRK49U?si=FP11-iL4La-JrrPd', mode: 'solid' },
 ];
 
 function getRoute(): RouteName {
@@ -432,7 +432,7 @@ function HomePage() {
 function PostPage({ onOpen }: { onOpen: (project: Project) => void }) {
   return <main className="post-page">
     <div className="post-head">
-      <section className="post-intro"><div><h1>POST<br />PRODUCTION</h1><p>Meticulous color grading, sound design, and narrative shaping for independent cinema and commercial auteurs.</p></div></section>
+      <section className="post-intro"><div><h1>POST<br />PRODUCTION</h1></div></section>
       <section className="post-skills"><span className="eyebrow" data-reveal>SOFTWARE USED</span><div className="skills-row">{postSkills.map((skill, index) => <div className="skill" key={skill.name} data-reveal style={stagger(index * 60)}><img src={skill.logo} alt="" /><span>{skill.name}</span></div>)}</div></section>
     </div>
     <section className="post-works"><div className="section-heading" data-reveal><span>SELECTED WORKS</span></div><div className="post-list">{postProjects.map((project, index) => <article className={`post-row${project.reverse ? ' reverse' : ''}`} key={project.title} data-reveal id={project.anchor ? `project-${project.anchor}` : undefined}><div className="post-copy"><span className="index">0{index + 1} / {project.meta.split(' / ')[1]}</span><h2>{project.title}</h2><div className="tags"><span>◉ ONLINE</span><span>✦ SOUND</span></div><div className="specs"><span>SOFTWARE<br /><b>Davinci Resolve</b></span><span>FORMAT<br /><b>S-Log 3</b></span></div><ActionButton project={project} onOpen={onOpen} /></div><PostImage project={project} /></article>)}</div></section>
@@ -440,7 +440,7 @@ function PostPage({ onOpen }: { onOpen: (project: Project) => void }) {
 }
 
 function LivePage({ onOpen }: { onOpen: (project: Project) => void }) {
-  return <main className="live-page"><section className="live-hero"><div className="live-hero-image"><img src={images.liveHero} alt="Live production control room" data-parallax /><div className="shade" /></div><div className="live-title"><h1>LIVE PRODUCTION</h1><p>Capturing the raw energy of live performance through meticulous multi-cam direction and real-time visual engineering.</p></div></section><div className="rule" /><section className="video-grid"><span className="photo-note" data-reveal>*photos not taken by me</span>{liveProjects.map((project, index) => <article className="video-card" key={project.title} data-reveal style={stagger(index * 90)} id={project.anchor ? `project-${project.anchor}` : undefined}><button className="video-thumb" onClick={() => onOpen(project)} aria-label={project.title}><img src={project.image} alt={project.title} /><span className="view-gallery">VIEW GALLERY</span></button><h3>{project.title}</h3>{project.date ? <span className="card-year">{project.date}</span> : null}</article>)}</section></main>;
+  return <main className="live-page"><section className="live-hero"><div className="live-hero-image"><img src={images.liveHero} alt="Live production control room" data-parallax /><div className="shade" /></div><div className="live-title"><h1>LIVE PRODUCTION</h1></div></section><div className="rule" /><section className="video-grid"><span className="photo-note" data-reveal>*photos not taken by me</span>{liveProjects.map((project, index) => <article className="video-card" key={project.title} data-reveal style={stagger(index * 90)} id={project.anchor ? `project-${project.anchor}` : undefined}><button className="video-thumb" onClick={() => onOpen(project)} aria-label={project.title}><img src={project.image} alt={project.title} /><span className="view-gallery">VIEW GALLERY</span></button><h3>{project.title}</h3>{project.date ? <span className="card-year">{project.date}</span> : null}</article>)}</section></main>;
 }
 
 function GalleryLightbox({ project, onClose }: { project: Project; onClose: () => void }) {
@@ -483,7 +483,7 @@ function GalleryLightbox({ project, onClose }: { project: Project; onClose: () =
 }
 
 function FilmPage({ onOpen }: { onOpen: (project: Project) => void }) {
-  return <main className="film-page"><section className="film-top"><div className="film-title"><h1>FILM<br />PRODUCTION</h1><p>Meticulous color grading, sound design, and narrative shaping for independent cinema and commercial auteurs.</p><span>ARCHIVES</span></div><div className="film-hero">{images.filmHero ? <img src={images.filmHero} alt="" /> : null}</div></section><div className="film-rule" /><section className="archive"><h2 data-reveal>SELECTED ARCHIVE</h2><div className="archive-list">{filmProjects.map((project, index) => <article className={`archive-row ${index % 2 ? 'reverse' : ''}`} key={project.title} data-reveal style={stagger(60)} id={project.anchor ? `project-${project.anchor}` : undefined}><div className="archive-copy"><h3>{project.title}</h3><span>{project.meta}</span><p>{project.description}</p><ActionButton project={project} onOpen={onOpen} /></div><div className="archive-image">{project.image ? <img src={project.image} alt={project.title} /> : null}{project.year ? <span className="duration">{project.year}</span> : null}</div></article>)}</div></section></main>;
+  return <main className="film-page"><section className="film-top"><div className="film-title"><h1>FILM<br />PRODUCTION</h1><span>ARCHIVES</span></div><div className="film-hero">{images.filmHero ? <img src={images.filmHero} alt="" /> : null}</div></section><div className="film-rule" /><section className="archive"><h2 data-reveal>SELECTED ARCHIVE</h2><div className="archive-list">{filmProjects.map((project, index) => <article className={`archive-row ${index % 2 ? 'reverse' : ''}`} key={project.title} data-reveal style={stagger(60)} id={project.anchor ? `project-${project.anchor}` : undefined}><div className="archive-copy"><h3>{project.title}</h3><span>{project.meta}</span><ActionButton project={project} onOpen={onOpen} /></div><div className="archive-image">{project.image ? <img src={project.image} alt={project.title} /> : null}{project.year ? <span className="duration">{project.year}</span> : null}</div></article>)}</div></section></main>;
 }
 
 function App() {
